@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import { News } from '@/lib/types';
 import type { MicroCMSListResponse } from 'microcms-js-sdk';
 
-type Params = { id: string };
 type NewsIdOnly = { id: string };
 
 export async function generateStaticParams() {
@@ -18,11 +17,7 @@ export async function generateStaticParams() {
 
 export const revalidate = 60;
 
-export default async function NewsDetail({
-  params,
-}: {
-  params: Params;
-}) {
+export default async function NewsDetail({ params }: any) {
   try {
     const data = await client.get<News>({
       endpoint: 'news',
