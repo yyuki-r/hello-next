@@ -1,4 +1,4 @@
-// app/news/[id]/page.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { client } from '@/lib/microcms';
 import { notFound } from 'next/navigation';
 import { News } from '@/lib/types';
@@ -24,7 +24,7 @@ type Props = {
 
 export default async function NewsDetail({
   params,
-  searchParams: _searchParams,  // ← ここを変更
+  searchParams,  // eslint warning suppressed above
 }: Props) {
   try {
     const data = await client.get<News>({
