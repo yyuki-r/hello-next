@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { client } from '@/lib/microcms';
+import { News } from '@/lib/types';
+import { MicroCMSListResponse } from 'microcms-js-sdk';
 
-export const revalidate = 60; // ISR: 60秒キャッシュ
+export const revalidate = 60; // ISR
 
 export default async function NewsList() {
-  const { contents } = await client.get({
+  const data = await client.get<MicroCMSListResponse<News>>({
     endpoint: 'news',
-    queries: { orders: '-publishedAt' }, // 新しい順
+    queries: { orders: '-publishedAt' },
   });
 
   return (
@@ -14,9 +16,12 @@ export default async function NewsList() {
       <h1 className="text-4xl font-bold mb-8">News</h1>
 
       <ul className="space-y-6">
-        {contents.map((item: any) => (
+        {data.contents.map((item: News) => (   /* ← ここは (item: News) のみ */
           <li key={item.id} className="border-b pb-4">
-            <Link href={`/news/${item.id}`} className="text-xl font-semibold hover:underline">
+            <Link
+              href={`/news/${item.id}`}
+              className="text-xl font-semibold hover:underline"
+            >
               {item.title}
             </Link>
             <p className="text-gray-500 text-sm">
