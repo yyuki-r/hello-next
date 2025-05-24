@@ -1,3 +1,4 @@
+/* app/news/[id]/page.tsx */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { client } from '@/lib/microcms';
 import { notFound } from 'next/navigation';
@@ -17,15 +18,11 @@ export async function generateStaticParams() {
 
 export const revalidate = 60;
 
-type Props = {
-  params: Params;
-  searchParams: Record<string, string | string[] | undefined>;
-};
-
 export default async function NewsDetail({
   params,
-  searchParams,  // eslint warning suppressed above
-}: Props) {
+}: {
+  params: Params;
+}) {
   try {
     const data = await client.get<News>({
       endpoint: 'news',
