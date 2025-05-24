@@ -1,5 +1,4 @@
-/* app/news/[id]/page.tsx */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+// app/news/[id]/page.tsx
 import { client } from '@/lib/microcms';
 import { notFound } from 'next/navigation';
 import { News } from '@/lib/types';
@@ -17,7 +16,9 @@ export async function generateStaticParams() {
 
 export const revalidate = 60;
 
-export default async function NewsDetail({ params }: any) {
+export default async function NewsDetail(
+  { params }: { params: { id: string } }  // ← ここで型注釈を追加
+) {
   try {
     const data = await client.get<News>({
       endpoint: 'news',
