@@ -24,7 +24,7 @@ type Props = {
 
 export default async function NewsDetail({
   params,
-  searchParams,
+  searchParams: _searchParams,  // ← ここを変更
 }: Props) {
   try {
     const data = await client.get<News>({
