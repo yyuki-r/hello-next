@@ -44,7 +44,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl font-bold text-blue-900 mb-4"
             >
-              株式会社六方良
+              株式会社六方嘉
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -82,6 +82,27 @@ export default function Home() {
           </div>
         </section>
 
+        {/* お問い合わせセクション */}
+        <section className="py-12 px-4 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href="https://forms.gle/vKFMxcPNSUMrfvuE6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-blue-900 text-white rounded-full text-lg font-semibold hover:bg-blue-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                お問い合わせはこちら
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
         {/* 会社概要セクション */}
         <section
           ref={ref}
@@ -98,15 +119,11 @@ export default function Home() {
               <div className="space-y-4">
                 <p className="text-gray-700">
                   <span className="font-semibold">会社名：</span>
-                  株式会社六方良
+                  株式会社六方嘉
                 </p>
                 <p className="text-gray-700">
                   <span className="font-semibold">代表取締役：</span>
                   與田祐樹
-                </p>
-                <p className="text-gray-700">
-                  <span className="font-semibold">資本金：</span>
-                  300,000円
                 </p>
               </div>
               <div className="space-y-4">
@@ -114,6 +131,14 @@ export default function Home() {
                   <span className="font-semibold">所在地：</span>
                   茨城県つくば市吾妻１丁目５−７ 2階
                 </p>
+                <p className="text-gray-700">
+                  <span className="font-semibold">事業内容：</span>
+                </p>
+                <ul className="list-disc list-inside ml-4 space-y-2">
+                  <li className="text-gray-700">プロダクト開発支援</li>
+                  <li className="text-gray-700">プロダクト戦略構築支援</li>
+                  <li className="text-gray-700">映像配信事業</li>
+                </ul>
               </div>
             </div>
           </motion.div>

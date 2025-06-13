@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('ja');
+  const [language, setLanguage] = useState<'ja' | 'en'>('ja');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,45 +26,66 @@ export default function Navigation() {
     { href: '/', label: { ja: 'トップページ', en: 'Home' } },
     { href: '/about', label: { ja: '会社概要', en: 'About' } },
     { href: '/services', label: { ja: 'サービス/事業内容', en: 'Services' } },
-    { href: '/contact', label: { ja: 'お問い合わせ', en: 'Contact' } },
+    { href: 'https://forms.gle/vKFMxcPNSUMrfvuE6', label: { ja: 'お問い合わせ', en: 'Contact' } },
   ];
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/0'
+        isScrolled ? 'bg-white shadow-md' : 'bg-white/80'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* ロゴ */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center">
+            <img
+              src="/ROPPOYOSHI_Icon_header.svg"
+              alt="Roppoyoshi Logo"
+              width={40}
+              height={40}
+              style={{ marginRight: '0.5rem' }}
+            />
             <Link href="/" className={`font-bold text-xl transition-colors duration-300 ${
-              isScrolled ? 'text-blue-900' : 'text-white'
+              isScrolled ? 'text-gray-800' : 'text-gray-800'
             }`}>
-              六方良
+              六方嘉
             </Link>
           </div>
 
           {/* デスクトップメニュー */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`transition-colors duration-300 ${
-                  isScrolled ? 'text-gray-700 hover:text-blue-900' : 'text-white hover:text-blue-100'
-                }`}
-              >
-                {item.label[language]}
-              </Link>
+              item.href.startsWith('http') ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors duration-300 ${
+                    isScrolled ? 'text-gray-700 hover:text-blue-900' : 'text-gray-700 hover:text-blue-900'
+                  }`}
+                >
+                  {item.label[language]}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`transition-colors duration-300 ${
+                    isScrolled ? 'text-gray-700 hover:text-blue-900' : 'text-gray-700 hover:text-blue-900'
+                  }`}
+                >
+                  {item.label[language]}
+                </Link>
+              )
             ))}
             <button
               onClick={toggleLanguage}
               className={`px-3 py-1 rounded-full border transition-colors duration-300 ${
                 isScrolled
                   ? 'border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white'
-                  : 'border-white text-white hover:bg-white hover:text-blue-900'
+                  : 'border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white'
               }`}
             >
               {language === 'ja' ? 'EN' : 'JP'}
@@ -76,7 +97,7 @@ export default function Navigation() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-blue-900' : 'text-white hover:text-blue-100'
+                isScrolled ? 'text-gray-700 hover:text-blue-900' : 'text-gray-700 hover:text-blue-900'
               }`}
             >
               <svg

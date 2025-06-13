@@ -50,6 +50,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="icon" href="/ROPPOYOSHI_Icon_fabicon.png" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
