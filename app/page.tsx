@@ -37,23 +37,45 @@ export default function Home() {
             <BackgroundAnimation />
           </div>
           
-          <div className="relative z-10 text-center px-4">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl font-bold text-blue-900 mb-4"
+          <div className="relative z-10 text-left px-4 max-w-3xl mx-auto">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.3 } },
+              }}
             >
-              株式会社六方嘉
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-blue-800"
-            >
-              社会の未来を知恵で切り拓く
-            </motion.p>
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-7xl font-extrabold text-blue-900 mb-2"
+              >
+                良い知恵で、
+              </motion.p>
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-7xl font-extrabold text-blue-900 mb-2"
+              >
+                価値あるものを
+              </motion.p>
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-7xl font-extrabold text-blue-900"
+              >
+                より早く
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
