@@ -40,7 +40,7 @@ export default function Navigation() {
           {/* ロゴ */}
           <div className="flex-shrink-0 flex items-center">
             <img
-              src="/ROPPOYOSHI_Icon_header.svg"
+              src="/ROPPOYOSHI_Icon_header_80_80.svg"
               alt="Roppoyoshi Logo"
               width={40}
               height={40}
