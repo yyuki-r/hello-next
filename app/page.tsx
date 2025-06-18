@@ -80,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* サービスセクション */}
-        <section className="py-20 px-4 bg-blue-50">
+        <section id="services" className="py-20 px-4 bg-blue-50">
           <div className="max-w-6xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ export default function Home() {
         </section>
 
         {/* お問い合わせセクション */}
-        <section className="py-12 px-4 bg-white">
+        <section id="contact" className="py-12 px-4 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -127,6 +127,7 @@ export default function Home() {
 
         {/* 会社概要セクション */}
         <section
+          id="about"
           ref={ref}
           className="py-20 px-4 bg-white"
         >
@@ -136,36 +137,55 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">会社概要</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <p className="text-gray-700">
-                  <span className="font-semibold">会社名：</span>
-                  株式会社六方嘉
-                </p>
-                <p className="text-gray-700">
-                  <span className="font-semibold">代表取締役：</span>
-                  與田祐樹
-                </p>
-              </div>
-              <div className="space-y-4">
-                <p className="text-gray-700">
-                  <span className="font-semibold">所在地：</span>
-                  茨城県つくば市吾妻１丁目５−７ 2階
-                </p>
-                <p className="text-gray-700">
-                  <span className="font-semibold">事業内容：</span>
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-2">
-                  <li className="text-gray-700">プロダクト開発支援</li>
-                  <li className="text-gray-700">プロダクト戦略構築支援</li>
-                  <li className="text-gray-700">映像配信事業</li>
-                </ul>
-              </div>
+            <h2 className="text-4xl font-bold text-center mb-4">PROFILE</h2>
+            <h3 className="text-xl text-center mb-12">会社概要</h3>
+            <div className="border-t border-gray-200">
+              <dl>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">法人名</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">六方嘉</dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">法人番号</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">-</dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">所在地</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    〒305-0031<br />
+                    茨城県つくば市吾妻1-5-7　ダイワロイネットホテルつくばビル1F・2F
+                  </dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">設立</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">2025年7月</dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">代表</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">與田祐樹</dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">事業内容</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>プロダクト開発支援</li>
+                      <li>プロダクト戦略構築支援</li>
+                      <li>映像配信事業</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">
+                  <dt className="text-sm font-medium text-gray-700">取引銀行</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"></dd>
+                </div>
+              </dl>
             </div>
           </motion.div>
         </section>
       </main>
+      <footer className="w-full py-6 bg-gray-100 text-center text-gray-500 text-sm mt-8">
+        Copyright © ROPPOYOSHI, INC.  All Rights Reserved.
+      </footer>
     </>
   );
 }

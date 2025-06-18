@@ -24,9 +24,9 @@ export default function Navigation() {
 
   const menuItems = [
     { href: '/', label: { ja: 'トップページ', en: 'Home' } },
-    { href: '/about', label: { ja: '会社概要', en: 'About' } },
-    { href: '/services', label: { ja: 'サービス/事業内容', en: 'Services' } },
-    { href: 'https://forms.gle/vKFMxcPNSUMrfvuE6', label: { ja: 'お問い合わせ', en: 'Contact' } },
+    { href: '#about', label: { ja: '会社概要', en: 'About' } },
+    { href: '#services', label: { ja: 'サービス/事業内容', en: 'Services' } },
+    { href: '#contact', label: { ja: 'お問い合わせ', en: 'Contact' } },
   ];
 
   return (
